@@ -2,7 +2,7 @@ import { useState,useEffect } from "react"
 
 
 import sections from './data'
-import MenuItem from "../collection-Items/collection-Items.component"
+import MenuItem from "../menu-Items/Menu-Items.component"
 import './directory-menu.css'
 
 

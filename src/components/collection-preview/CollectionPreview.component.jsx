@@ -2,6 +2,7 @@
 
 
 import './collection-preview.style.css'
+import CollectionItem from '../collection-items/collection-item.component'
 
 
 const CollectionPreview = ({collection}) => {
@@ -13,7 +14,7 @@ const CollectionPreview = ({collection}) => {
                     <div className="preview">
                         {
                             items.filter((item,index)=>index<4).map(item =>(
-                                <h1>{item.name}</h1>
+                                <CollectionItem key={item.id} item={item} />
                             ))
                         }
 
