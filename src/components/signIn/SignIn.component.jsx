@@ -1,54 +1,59 @@
-import React,{useState} from 'react'
+import React,{useState,Component} from 'react'
 import './signIn.style.css'
 
 
 import FormInput from '../FormInput/FormInput.component'
+import CustomButton from '../custombutton/CustomButton.component'
 
-function SignIn() {
+class SignIn extends Component{
 
-    const [email,setEmail] = useState('')
-    const [passward,setPassward] = useState('')
+    constructor(props){
+        super(props)
 
-    const handleSubmit = (event) =>{
+        this.state = {
+            email : '',
+            passward:''
+        }
+    }
+
+    handleSubmit = (event) => {
         event.preventDefult()
-        console.log('ss')
+        this.setState({email:'',passward:''})  
+    } 
 
+    handleChange = (event) => {
+        const {name,value} = event.traget.value
+        this.setState({[value]:name})
     }
 
-    const handleChange = (e) => {
-        setEmail(e.traget.value)
-        setPassward(e.traget.value)
 
-    }
-
-    console.log(email)
-    console.log(passward)
-
-    return <div className='sign-in'>
+    render() {        
+        return <div className='signin'>
                 <div>
-                    <h1>I already have an account </h1>
+                    <h1 className='title'>I already have an account </h1>
                     <span>Sign in with your email and passward</span>
-                    <FormInput onSubmit={handleSubmit} handleChange={handleChange}>
-                        <input 
+                    <form onSubmit={this.handleSubmit}>
+                        <FormInput
                             name='email' 
                             type='email' 
-                            value={email} 
+                            value={this.state.email} 
                             required
-                            onChange={handleChange}
-                        />
-                        <label>Email</label>
-                        <FormInput 
+                            label="email"
+                            handleChange={this.handleChange}
+                            />
+                        <FormInput
                             type='passward'
                             name='passward'
-                            value={passward}
+                            label='passward'
+                            value={this.state.passward}
                             required
-                            onChange={handleChange}
-                        />
-                        <label>Passward</label>
-                        <input type='submit' value='submit form' />
-                    </FormInput>
+                            handleChange={this.handleChange}
+                            />
+                        <CustomButton type='submit' value='submit form' >Sign IN</CustomButton>
+                    </form>
                 </div>
            </div>
+}
 }
 
 export default SignIn
