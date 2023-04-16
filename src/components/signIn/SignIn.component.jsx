@@ -4,6 +4,7 @@ import './signIn.style.css'
 
 import FormInput from '../FormInput/FormInput.component'
 import CustomButton from '../custombutton/CustomButton.component'
+import SignInWithGoogle from '../FairBase/FairBaseUtiles'
 
 class SignIn extends Component{
 
@@ -50,6 +51,7 @@ class SignIn extends Component{
                             handleChange={this.handleChange}
                             />
                         <CustomButton type='submit' value='submit form' >Sign IN</CustomButton>
+                        <CustomButton onClick={SignInWithGoogle} > Sign With Google </CustomButton>
                     </form>
                 </div>
            </div>
