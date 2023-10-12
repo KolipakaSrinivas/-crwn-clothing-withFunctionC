@@ -1,29 +1,23 @@
-import { Route, Routes } from "react-router-dom"
-import './app.css'
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
 
-
-import HomePage from "./pages/HomePage/HomePage.component"
-import ShopPage from "./pages/shop/shop-page.component"
-import Header from './components/Header/Heade.component'
-import SignInAndSingUp from "./pages/sign_n-and-sign_up/sign_n-sign_up.component"
-
-
+import Header from "./components/header/Header-component";
+import Shop from './pages/shop/Shop-component'
+import HomePage from "./pages/homepages/HomePage-component";
+import SignInAndSignUp from "./pages/sign-in-and-sign-up/sign-in-and-sign-up-component";
 
 function App() {
-
   return (
-
-    <div className="App">
+    <React.Fragment>
       <Header/>
       <Routes>
-        <Route path="/" Component={HomePage}/>
-        <Route path="/shop" Component={ShopPage}/>
-        <Route path="/sign" Component={SignInAndSingUp}/>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/shop" element={ <Shop/> }/>
+        <Route path="/signin" element={<SignInAndSignUp/>}/>
       </Routes>
-    </div>
-  )
+    </React.Fragment>
+  );
 }
 
-
-
-export default App
+export default App;
