@@ -1,18 +1,18 @@
 import React from 'react';
-import { Fragment } from 'react';
-import './Form-Input-styles.css'
+import './form-Input-styles.css'
 
-function FormInput({handleChange,label,...otherprops}) {
-    return (
-        <Fragment>
-            <div className='group'>
-                <input className='form-input' onChange={handleChange} {...otherprops} />
-                {
-                    label ? (<label className={`${otherprops.value.length ? 'shrink':''} form-input-label `}></label>) : null
-                }
-            </div>
-        </Fragment>
+const FormInput = ({sinkButton,label,...otherprops}) =>{
+    return(
+        <div className='group'>
+            <input className='form-input'onChange={sinkButton} {...otherprops} />
+            {
+                label ? 
+                (<label className={`${otherprops.value.length ? 'srink' :'' }form-input-label`}>
+                    {label}
+                </label>) :null
+            }
+        </div>
     )
 }
 
-export default  FormInput
+export default FormInput
